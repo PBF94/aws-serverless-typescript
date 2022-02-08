@@ -9,8 +9,6 @@
       "dom"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
     "allowJs": true /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */,
-    "outDir": "dist" /* Specify an output folder for all emitted files. */,
-    "rootDir": "." /* Specify the root folder within your source files. */,
     "removeComments": true /* Disable emitting comments. */,
 
     // Strict type-checking options
