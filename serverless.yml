@@ -1,0 +1,29 @@
+service: serverlessSetup
+
+# Cloud provider
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-central-1
+
+# Serverless functions
+functions:
+  hello:
+    handler: ./src/functions/hello.handler
+    events:
+      - http:
+          path: serverlessSetup/hello
+          method: get
+  goodbye:
+    handler: ./src/functions/goodbye.handler
+    events:
+      - http:
+          path: serverlessSetup/goodbye
+          method: post
+
+# Serverless plugins
+plugins:
+  - serverless-plugin-typescript
+
+# Resources your functions use
+resources:
