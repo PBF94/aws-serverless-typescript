@@ -20,6 +20,13 @@ functions:
       - http:
           path: serverlessSetup/goodbye
           method: post
+  question:
+    handler: ./src/functions/question.handler
+    dependsOn: SNSQuestionEvent
+    events:
+      - sns:
+          arn: !Ref SNSQuestionEvent
+          topicName: question-event
 
 # Serverless plugins
 plugins:
@@ -27,3 +34,10 @@ plugins:
 
 # Resources your functions use
 resources:
+  Resources:
+    #SNS Topics
+    SNSQuestionEvent:
+      Type: AWS::SNS::Topic
+      Properties:
+        DisplayName: Question Event Topic
+        TopicName: question-event
